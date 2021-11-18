@@ -57,7 +57,7 @@ repositories {
     }
 
     maven {
-        url 'https://github.com/pagseguro/PlugPagServiceWrapper/raw/master'
+        url 'https://github.com/pagseguro/pagseguro-sdk-plugpagservicewrapper/tree/master'
     }
     google()
     jcenter()
