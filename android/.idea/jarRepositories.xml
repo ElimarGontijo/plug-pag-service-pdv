@@ -24,7 +24,7 @@
     <remote-repository>
       <option name="id" value="maven3" />
       <option name="name" value="maven3" />
-      <option name="url" value="https://github.com/pagseguro/PlugPagServiceWrapper/raw/master" />
+      <option name="url" value="https://github.com/pagseguro/pagseguro-sdk-plugpagservicewrapper/tree/master" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="maven" />
