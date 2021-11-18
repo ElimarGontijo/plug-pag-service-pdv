@@ -56,9 +56,11 @@ repositories {
         url "$rootDir/../node_modules/jsc-android/dist"
     }
 
-    maven {
-        url 'https://github.com/pagseguro/pagseguro-sdk-plugpagservicewrapper/tree/master'
+    maven 
+    {
+            url 'https://raw.githubusercontent.com/pagseguro/pagseguro-sdk-plugpagservicewrapper/master'
     }
+    
     google()
     jcenter()
 }
