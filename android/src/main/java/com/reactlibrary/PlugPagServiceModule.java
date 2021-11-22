@@ -1035,6 +1035,11 @@ public class PlugPagServiceModule extends ReactContextBaseJavaModule {
                     map.putString("message", transactionResult.getMessage());
                     map.putString("transactionCode", transactionResult.getTransactionCode());
                     map.putString("transactionId", transactionResult.getTransactionId());
+                    map.putString("cardBrand", transactionResult.getCardBrand());
+                    map.putString("bin", transactionResult.getCardBrand());
+                    map.putString("label", transactionResult.getLabel());
+                    map.putString("autoCode", transactionResult.getAutoCode());
+                    map.putString("errorCode", transactionResult.getErrorCode());
                     promise.resolve(map);
                     executor.isTerminated();
                     System.gc();
