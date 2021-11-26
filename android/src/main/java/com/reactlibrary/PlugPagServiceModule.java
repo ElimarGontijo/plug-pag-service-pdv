@@ -240,7 +240,7 @@ public class PlugPagServiceModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void printText(string line, int fontSize, int alignment){
+    public void printText(String line, int fontSize, int alignment){
         setFontSize(fontSize);
         setAlign(alignment);
         addTextLine(line);
