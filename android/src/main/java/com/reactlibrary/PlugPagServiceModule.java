@@ -239,6 +239,37 @@ public class PlugPagServiceModule extends ReactContextBaseJavaModule {
         pieces = new LinkedList<Piece>();
     }
 
+    @ReactMethod
+    public static void printText(string line, int fontSize, int alignment){
+        setFontSize(fontSize);
+        setAlign(alignment);
+        addTextLine(line);
+        setLineSpacing(60);
+    }
+    
+    @ReactMethod
+    public static void endPrint(){
+
+        generateImage("imagem");
+
+        final PlugPagPrinterData data = new PlugPagPrinterData( Environment.getExternalStorageDirectory().getAbsolutePath() + "/Download/print/imagem", 1, 10 * 12);
+        PlugPagPrinterListener listener = new PlugPagPrinterListener() {
+            @Override
+            public void onError(PlugPagPrintResult plugPagPrintResult) {
+                promise.reject("error", plugPagPrintResult.getMessage());
+            }
+
+            @Override
+            public void onSuccess(PlugPagPrintResult plugPagPrintResult) {
+                promise.resolve(null);
+                executor.isTerminated();
+            }
+        };
+        plugPag.setPrinterListener(listener);
+        plugPag.printFromFile(data);
+    }
+
+
     public static void setBold(boolean _bold) {
         bold = _bold;
     }
@@ -1036,7 +1067,8 @@ public class PlugPagServiceModule extends ReactContextBaseJavaModule {
                     map.putString("transactionCode", transactionResult.getTransactionCode());
                     map.putString("transactionId", transactionResult.getTransactionId());
                     map.putString("cardBrand", transactionResult.getCardBrand());
-                    map.putString("bin", transactionResult.getCardBrand());
+                    map.putString("bin", transactionResult.getBin());
+                    map.putString("nsu", transactionResult.getNsu());
                     map.putString("label", transactionResult.getLabel());
                     map.putString("autoCode", transactionResult.getAutoCode());
                     map.putString("errorCode", transactionResult.getErrorCode());
